@@ -1,0 +1,20 @@
+[09:05, 28-9-2018] okan: application: CHallenge
+version: 1
+runtime: php55
+api_version: 1
+threadsafe: yes
+
+handlers:
+- url: /(.+\.(html|css|php|gif|png|jps))$
+  static_files: \1
+  upload: .+\.(html|css|php|gif|png|jpg)$
+  application_readable: true
+
+# PHP Scriptbestanden.
+- url: /(.+\.php)$
+  script: \1
+  
+- url: /.*
+  static_files: index.php
+  upload: index.php
+  application_readable: true
